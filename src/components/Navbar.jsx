@@ -192,8 +192,8 @@ useEffect(() => {
         Products
       </button>
       {showProducts && (
-        <div className="absolute top-full mt-2 border rounded shadow w-52 z-50 bg-white">
-          <div className="flex flex-col gap-y-1 p-1">
+        <div className="absolute top-full mt-2 border rounded shadow w-52 z-50 bg-cyan">
+          <div className="flex flex-col gap-y-1 py-1 bg-cyan-100 border border-black">
             {[
               { to: "/products/pampers", label: "Pampers" },
               { to: "/products/boys-fashion", label: "Boy's Fashions" },
@@ -206,7 +206,7 @@ useEffect(() => {
                 key={to}
                 to={to}
                 onClick={() => setShowProducts(false)}
-                className="block px-4 py-2 border border-cyan-300 rounded hover:bg-sky-50 text-base"
+                className="block px-4 py-2 border border-cyan-300 rounded bg-white hover:bg-sky-50 text-base"
               >
                 {label}
               </Link>

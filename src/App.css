@@ -12,7 +12,7 @@
 .clip-bend1 {
   clip-path: polygon(
     0 0,                      /* Top-left */
-    70% 0,                    /* Shorter horizontal line */
+    75% 0,                    /* Shorter horizontal line */
     calc(65% + 50px) 40px,    /* Slant down to the right */
     100% 40px,                /* Continue top edge */
     100% 100%,                /* Bottom-right */

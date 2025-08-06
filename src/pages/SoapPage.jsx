@@ -17,7 +17,7 @@ const SoapPage = () => {
           <span>›</span>
           <span>Products</span>
           <span>›</span>
-          <Link to="" className="text-blue-600 font-semibold">Soap</Link>
+          <Link to="" className="">Soap</Link>
         </div>
 
         <div className="w-full md:w-auto">

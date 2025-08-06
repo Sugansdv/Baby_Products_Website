@@ -17,7 +17,7 @@ const Pampers = () => {
           <span>›</span>
           <span>Products</span>
           <span>›</span>
-          <Link to="" className="text-blue-600 font-semibold">Pampers</Link>
+          <Link to="" className="">Pampers</Link>
         </div>
 
         <div className="w-full md:w-auto">

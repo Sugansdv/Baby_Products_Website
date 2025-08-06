@@ -17,7 +17,7 @@ const StrollerPage = () => {
           <span>›</span>
           <span>Products</span>
           <span>›</span>
-          <Link to="" className="text-blue-600 font-semibold">Stroller</Link>
+          <Link to="" className="">Stroller</Link>
         </div>
 
         <div className="w-full md:w-auto">

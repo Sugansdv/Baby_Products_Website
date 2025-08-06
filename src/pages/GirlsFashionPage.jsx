@@ -16,7 +16,7 @@ const GirlsFashionPage = () => {
           <span>›</span>
           <span>Products</span>
           <span>›</span>
-          <Link to="" className="text-blue-600 font-semibold">GirlsFashion</Link>
+          <Link to="" className="">GirlsFashion</Link>
         </div>
 
         <div className="w-full md:w-auto">

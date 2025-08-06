@@ -17,7 +17,7 @@ const BottlePage = () => {
           <span>›</span>
           <span>Products</span>
           <span>›</span>
-          <Link to="" className="text-blue-600 font-semibold">Bottle</Link>
+          <Link to="" className="">Bottle</Link>
         </div>
 
         <div className="w-full md:w-auto">
