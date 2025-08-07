@@ -42,10 +42,10 @@ const TrustSection = () => {
         {trustData.map((item, index) => (
           <div
             key={index}
-            className="border rounded-xl py-6 px-2 flex flex-col items-center bg-white hover:shadow-md transition"
+            className="border rounded-xl py-6 px-2 flex flex-col items-center bg-white hover:shadow-md transition border border-[#B0E4F4]"
           >
             <img src={item.img} alt={item.title} className="w-36 h-36" />
-            <div className="bg-cyan-100 px-2 py-3 w-[90%] h-[25vh] rounded w-full text-center border border-blue-300">
+            <div className="bg-[#B0E4F4] px-2 py-3 w-[90%] h-[25vh] rounded-xl w-full text-center shadow-xl border border-gray-400">
               <h3 className="font-bold text-md md:text-base mb-1">{item.title}</h3>
               <p className="text-sm md:text-lg text-gray-700">{item.description}</p>
             </div>

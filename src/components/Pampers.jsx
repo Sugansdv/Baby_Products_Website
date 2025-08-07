@@ -25,7 +25,7 @@ const Pampers = () => {
             Gentle on delicate skin, perfect for day and night comfort.
           </p>
           <Link to="/products/pampers">
-  <button className="bg-cyan-200 text-2xl text-blue-900 font-semibold py-2 px-6 rounded-full hover:bg-blue-300 transition flex items-center gap-2">
+   <button className="bg-[#B0E4F4] text-2xl text-gray-700 font-semibold py-3 px-6 rounded-full  hover:bg-[#a0d8ec] transition flex items-center gap-2">
     Buy Now
     <img src={arrow} alt="arrow" className="w-5 h-5" />
   </button>

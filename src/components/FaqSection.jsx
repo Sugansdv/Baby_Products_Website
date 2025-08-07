@@ -6,25 +6,25 @@ const faqs = [
     answer:
       "Yes, all our products are dermatological tested and made with gentle, non-toxic ingredients that are safe for newborns and sensitive skin.",
   },
-  {
+   {
     question: "How long does delivery take?",
     answer:
-      "Delivery typically takes 3–5 business days depending on your location. You’ll receive tracking details once your order is shipped.",
+      "Our standard delivery timeline is 3 to 5 working days. You'll receive a confirmation email with tracking once your order is dispatched.",
   },
   {
     question: "Can I return or exchange a product?",
     answer:
-      "Yes, we offer a 7-day return or exchange policy on unused and unopened items. Please contact our support team to initiate a return.",
+      "Certainly! We allow returns and exchanges within 7 days of delivery, provided the item is unused and in its original packaging.",
   },
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept all major credit/debit cards, UPI, net banking, and wallet payments like Paytm and Google Pay.",
+      "We support payments via credit/debit cards, UPI, net banking, and digital wallets including PhonePe, Google Pay, and Paytm.",
   },
   {
     question: "Are your skincare products organic or natural?",
     answer:
-      "Yes, our skincare range is made using organic and naturally derived ingredients, free from harmful chemicals and artificial fragrances.",
+      "Yes, our skincare products are crafted with nature-derived ingredients and are certified organic, ensuring purity and safety for all skin types.",
   },
 ];
 

@@ -10,7 +10,7 @@ export default function FaqItem({ question, answer }) {
         className="flex justify-between items-center w-full text-left  text-xl md:text-2xl font-medium text-gray-800"
       >
         <span>{question}</span>
-       <span className="text-blue-500 border border-cyan-200 rounded-full w-8 h-8 flex items-center justify-center">
+       <span className="text-blue-500 border border-[#00B4D8] rounded-full w-8 h-8 flex items-center justify-center">
   {isOpen ? "▴" : "▾"}
 </span>
 

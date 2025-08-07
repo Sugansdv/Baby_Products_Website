@@ -62,7 +62,7 @@ const FeaturedCategories = () => {
             </Link>
 
             {/* Bottom Info Box with Clip */}
-            <div className="w-full bg-cyan-200 flex justify-between items-center px-4 py-3 rounded-b-xl clip-bend1">
+            <div className="w-full bg-[#B0E4F4] flex justify-between items-center px-4 py-5 rounded-b-xl clip-bend1">
               <p className="text-lg md:text-lg font-semibold">{item.title}</p>
             </div>
           </div>

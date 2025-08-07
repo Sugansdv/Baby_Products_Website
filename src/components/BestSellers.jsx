@@ -66,14 +66,14 @@ const BestSellers = () => {
   <div className="absolute bottom-[80px] right-1 z-50">
     <button
       onClick={() => navigate(`/product/${product.id}`)}
-      className="bg-[#00b4d8] px-4 py-1 rounded-full text-base md:text-lg font-semibold text-white hover:bg-[#007ea7] transition-all duration-300 hover:scale-110"
+      className="bg-[#00b4d8] px-4 py-1 rounded-full text-base md:text-lg font-semibold hover:bg-[#007ea7] transition-all duration-300 hover:scale-110"
     >
       Buy
     </button>
   </div>
 
   {/* Bottom Info Box */}
-  <div className="bg-[#b2e9fa] p-4 pt-2 clip-slant rounded-b-[20px] relative clip-bend">
+  <div className="bg-[#B0E4F4] p-4 pt-2 clip-slant rounded-b-[20px] relative clip-bend">
     <div className="flex justify-between items-center mb-1">
       <h3 className="font-bold text-lg md:text-xl">{product.title}</h3>
     </div>

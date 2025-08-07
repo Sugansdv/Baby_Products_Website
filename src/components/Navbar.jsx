@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import addToCart from "../assets/images/addToCart.png";
 import login from "../assets/images/login1.jpg";
@@ -28,6 +29,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const productsRef = useRef(null);
   const mobileMenuRef = useRef(null);
+const [showMobileProducts, setShowMobileProducts] = useState(false);
 
   const toggleProducts = () => setShowProducts((s) => !s);
   const toggleMobileMenu = () => setMobileMenuOpen((s) => !s);
@@ -159,14 +161,24 @@ useEffect(() => {
   };
 }, []);
 
+const navLinkClass = ({ isActive }) =>
+  `py-1 transition duration-300 
+   ${
+     isActive
+       ? "bg-cyan-100 border-b-4 border-[#00B4D8] pb-2"
+       : "hover:bg-cyan-100 hover:border-b-4 hover:border-[#00B4D8] hover:pb-2"
+   }`;
+
+
 
   
   return (
     <header className="bg-white shadow sticky top-0 z-50">
       {/* Top row */}
-      <div className="container mx-auto flex justify-between items-center px-4 py-3">
+      <div className="container mx-auto flex justify-space-between items-center px-4 py-3">
+
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 -ml-20">
           <Link to="/" className="flex items-center gap-1">
             <img src={logo} className="h-8" alt="Logo" />
             <span className="text-sky-500 text-2xl font-bold">EarthBubs</span>
@@ -175,10 +187,13 @@ useEffect(() => {
 
         {/* Desktop nav + controls */}
         <div className="hidden lg:flex flex-1 items-center justify-between">
-          <nav className="flex gap-10 text-gray-800 font-semibold relative text-xl mx-auto">
-            <Link to="/" className="hover:text-sky-500">
-              Home
-            </Link>
+          <nav className="flex gap-10 text-gray-800 font-semibold relative text-xl mx-auto mr-18">
+             <NavLink to="/" className={navLinkClass}>
+  Home
+</NavLink>
+
+
+
 
             {/* Products dropdown */}
             <div className="relative" ref={productsRef}>
@@ -186,14 +201,14 @@ useEffect(() => {
         onClick={() => setShowProducts((s) => !s)}
         aria-expanded={showProducts}
         aria-haspopup="menu"
-        className="hover:text-sky-500"
+        className="hover:text-sky-500 py-1"
         type="button"
       >
         Products
       </button>
       {showProducts && (
-        <div className="absolute top-full mt-2 border rounded shadow w-52 z-50 bg-cyan">
-          <div className="flex flex-col gap-y-1 py-1 bg-cyan-100 border border-black">
+        <div className="absolute top-full mt-2 border rounded shadow w-52 z-50 bg-[#B0E4F4]">
+          <div className="flex flex-col gap-y-1 py-1 bg-cyan-100 border">
             {[
               { to: "/products/pampers", label: "Pampers" },
               { to: "/products/boys-fashion", label: "Boy's Fashions" },
@@ -206,7 +221,7 @@ useEffect(() => {
                 key={to}
                 to={to}
                 onClick={() => setShowProducts(false)}
-                className="block px-4 py-2 border border-cyan-300 rounded bg-white hover:bg-sky-50 text-base"
+                className="block px-4 py-2 border  border-black rounded bg-white hover:bg-sky-30 hover:text-violet-800 text-base"
               >
                 {label}
               </Link>
@@ -216,18 +231,19 @@ useEffect(() => {
       )}
     </div>
 
-            <Link to="/offers" className="hover:text-sky-500">
-              Offers
-            </Link>
-            <Link to="/about" className="hover:text-sky-500">
-              About Us
-            </Link>
-            <Link to="/contacts" className="hover:text-sky-500">
-              Contact
-            </Link>
+            <NavLink to="/offers" className={navLinkClass}>
+  Offers
+</NavLink>
+<NavLink to="/about" className={navLinkClass}>
+  About Us
+</NavLink>
+<NavLink to="/contacts" className={navLinkClass}>
+  Contact
+</NavLink>
+
           </nav>
 
-          <div className="flex items-center gap-5 -mr-10">
+          <div className="flex items-center gap-5 -mr-20">
              <div className="relative w-64">
       <input
         type="text"
@@ -408,20 +424,8 @@ useEffect(() => {
 
       {/* Mobile/tablet menu links */}
       {mobileMenuOpen && (
-        <div className="lg:hidden relative z-40">
-          {/* backdrop */}
-          <div
-            className="fixed inset-0 bg-black/20"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-hidden="true"
-          />
-          {/* menu panel */}
-          <div
-            className="relative bg-white border-t shadow"
-            ref={mobileMenuRef}
-            onClick={(e) => e.stopPropagation()} // prevent backdrop from catching inside clicks
-          >
-            <div className="flex flex-col px-4 py-2 gap-2 text-gray-800 font-medium text-lg">
+  <div className="lg:hidden w-full bg-white border-t shadow z-40" ref={mobileMenuRef}>
+    <div className="flex flex-col px-4 py-2 gap-2 text-gray-800 font-medium text-lg">
               <Link
                 to="/"
                 onClick={() => {
@@ -437,12 +441,14 @@ useEffect(() => {
               <div className="flex flex-col">
                 <button
                   type="button"
-                  onClick={toggleProducts}
+                  onClick={() => setShowMobileProducts((prev) => !prev)}
+
                   className="py-2 text-left hover:text-sky-500"
                 >
                   Products
                 </button>
-                {showProducts && (
+                {showMobileProducts && (
+
                   <div className="pl-4 flex flex-col gap-1">
                     {[
                       { to: "/products/pampers", label: "Pampers" },
@@ -456,9 +462,10 @@ useEffect(() => {
                         key={to}
                         to={to}
                         onClick={() => {
-                          setShowProducts(false);
-                          setMobileMenuOpen(false);
-                        }}
+  setShowMobileProducts(false);
+  setMobileMenuOpen(false);
+}}
+
                         className="py-1"
                       >
                         {label}
@@ -500,8 +507,7 @@ useEffect(() => {
                 Contact
               </Link>
             </div>
-          </div>
-        </div>
+  </div>
       )}
 
       <hr />
