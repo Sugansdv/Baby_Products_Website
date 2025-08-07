@@ -9,6 +9,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showForgotModal, setShowForgotModal] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [resetSuccess, setResetSuccess] = useState(null);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -29,28 +33,107 @@ const Login = () => {
       setShowModal(true);
       setTimeout(() => setShowModal(false), 2000);
     } else {
-  // ✅ Save logged-in user to localStorage
-  localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
+      window.dispatchEvent(new Event("userUpdated"));
+      setModalMessage('Login successful! Redirecting...');
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+        navigate('/');
+      }, 2000);
+    }
+  };
 
-  // ✅ Notify Navbar of the login change
-  window.dispatchEvent(new Event("userUpdated"));
+  const handlePasswordReset = (e) => {
+    e.preventDefault();
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userIndex = users.findIndex(user => user.email === forgotEmail);
 
-  setModalMessage('Login successful! Redirecting...');
-  setShowModal(true);
-  setTimeout(() => {
-    setShowModal(false);
-    navigate('/');
-  }, 2000);
-}
+    if (userIndex !== -1) {
+      users[userIndex].password = newPassword;
+      localStorage.setItem('users', JSON.stringify(users));
+      setResetSuccess(true);
+      setTimeout(() => {
+        setShowForgotModal(false);
+        setResetSuccess(null);
+        navigate('/login');
+      }, 2000);
+    } else {
+      setResetSuccess(false);
+      setTimeout(() => {
+        setShowForgotModal(false);
+        setResetSuccess(null);
+        navigate('/login');
+      }, 2000);
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4 py-8 relative">
-      {/* Modal */}
+      {/* General Modal */}
       {showModal && (
         <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-8 rounded-lg shadow-md text-center">
             <h2 className="text-xl font-semibold mb-2">{modalMessage}</h2>
+          </div>
+        </div>
+      )}
+
+      {/* Forgot Password Modal */}
+      {showForgotModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm relative">
+            <h2 className="text-xl font-bold mb-4">Reset Password</h2>
+            <form onSubmit={handlePasswordReset} className="space-y-4">
+              <input
+                type="email"
+                placeholder="Enter your registered email"
+                value={forgotEmail}
+                onChange={(e) => setForgotEmail(e.target.value)}
+                className="w-full border-b border-gray-400 outline-none py-2"
+                required
+              />
+              <input
+                type="password"
+                placeholder="Enter new password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="w-full border-b border-gray-400 outline-none py-2"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-[#7ED6DF] text-black font-semibold py-2 w-full rounded-md"
+              >
+                Reset Password
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowForgotModal(false)}
+                className="text-sm text-gray-500 hover:underline mt-2 block text-center w-full"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Reset Success Modal */}
+      {resetSuccess === true && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h2 className="text-2xl font-bold mb-2">Password Updated</h2>
+            <p className="text-gray-600">Redirecting to login...</p>
+          </div>
+        </div>
+      )}
+
+      {/* Reset Error Modal */}
+      {resetSuccess === false && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h2 className="text-2xl font-bold mb-2 text-red-500">Email Not Found</h2>
           </div>
         </div>
       )}
@@ -104,8 +187,11 @@ const Login = () => {
               >
                 Log In
               </button>
-              <span className="text-gray-400 text-sm cursor-pointer hover:text-black">
-                Forget Password?
+              <span
+                className="text-gray-400 text-sm cursor-pointer hover:text-black"
+                onClick={() => setShowForgotModal(true)}
+              >
+                Forgot Password?
               </span>
             </div>
           </form>

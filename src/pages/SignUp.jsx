@@ -19,39 +19,47 @@ const Signup = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const { name, email, password } = formData;
+  e.preventDefault();
+  const { name, email, password } = formData;
 
-    // Validation
-    if (!name || !email || !password) {
-      alert("Please fill in all fields.");
-      return;
-    }
+  // Validation
+  if (!name || !email || !password) {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-    const nameRegex = /^[A-Za-z\s]+$/;
-    if (!nameRegex.test(name)) {
-      alert("Please enter a valid name (letters and spaces only).");
-      return;
-    }
+  const nameRegex = /^[A-Za-z\s]+$/;
+  if (!nameRegex.test(name)) {
+    alert("Please enter a valid name (letters and spaces only).");
+    return;
+  }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
 
-    // Save to localStorage
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const updatedUsers = [...existingUsers, formData];
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  // Check if user already exists
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  const userExists = existingUsers.some(user => user.email === email);
 
-    // Show modal and redirect
-    setShowModal(true);
-    setTimeout(() => {
-      setShowModal(false);
-      navigate('/login');
-    }, 2000);
-  };
+  if (userExists) {
+    alert("User with this email already exists.");
+    return;
+  }
+
+  //  Save new user to localStorage
+  const updatedUsers = [...existingUsers, formData];
+  localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+  //Show success modal and redirect
+  setShowModal(true);
+  setTimeout(() => {
+    setShowModal(false);
+    navigate('/login');
+  }, 2000);
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4 py-8 relative">

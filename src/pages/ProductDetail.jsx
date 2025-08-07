@@ -211,7 +211,7 @@ const ProductDetail = () => {
                 <p className="font-semibold">Return Delivery</p>
                 <p className="text-sm text-gray-800 font-semibold">
                   Free 7 Days Delivery Returns.{" "}
-                  <span className="underline cursor-pointer">Details</span>
+                  <Link to="/shipping" className="underline cursor-pointer">Details</Link>
                 </p>
               </div>
             </div>
