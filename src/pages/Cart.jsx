@@ -31,7 +31,7 @@ const [modalMessage, setModalMessage] = useState("");
 </div>
 
       {/* Table Header - Hidden on small screens */}
-      <div className="hidden sm:grid grid-cols-4 font-bold border border-cyan-200 rounded-lg p-4 text-center text-sm md:text-base text-cyan-800">
+      <div className="hidden sm:grid grid-cols-4 font-bold border border-[#00b4d8] rounded-lg p-4 text-center text-sm md:text-base">
         <span>Product</span>
         <span>Price</span>
         <span>Quantity</span>
@@ -42,7 +42,7 @@ const [modalMessage, setModalMessage] = useState("");
       {cartItems.map((item) => (
         <div
           key={item.id}
-          className="grid grid-cols-1 sm:grid-cols-4 sm:items-center text-center border border-cyan-200 rounded-lg p-4 relative text-sm md:text-base gap-4"
+          className="grid grid-cols-1 sm:grid-cols-4 sm:items-center text-center border border-[#00b4d8] rounded-lg p-4 relative text-sm md:text-base gap-4"
         >
           {/* Product */}
           <div className="flex items-center gap-3 justify-center sm:justify-start ml-0 lg:ml-20">
@@ -116,7 +116,7 @@ const [modalMessage, setModalMessage] = useState("");
       <div className="flex flex-col md:flex-row justify-between gap-10 w-full items-start text-sm md:text-base">
         {/* Coupon Input */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-[40%]">
-          <div className="flex items-center bg-cyan-100 px-3 py-2 rounded-lg w-full md:w-auto">
+          <div className="flex items-center bg-[#b0e4f4] px-3 py-2 rounded-lg w-full md:w-auto">
             <FaTag className="mr-2 text-cyan-700" />
             <input
               type="text"
@@ -128,7 +128,7 @@ const [modalMessage, setModalMessage] = useState("");
           </div>
           <button
             onClick={() => applyCoupon(localCoupon)}
-            className="bg-cyan-300 hover:bg-cyan-500 px-8 py-2 rounded-lg w-full md:w-auto"
+            className="bg-cyan-200 hover:bg-cyan-500 px-8 py-2 rounded-lg w-full md:w-auto"
           >
             Apply Coupon
           </button>
@@ -158,7 +158,7 @@ const [modalMessage, setModalMessage] = useState("");
           </div>
           <div className="flex justify-center">
             <button
-              className="w-48 mt-3 bg-cyan-500 hover:bg-cyan-600 py-2 rounded-lg"
+              className="w-48 mt-3 bg-[#00b4d8] hover:bg-cyan-600 py-2 rounded-lg"
              onClick={() => {
   const user = JSON.parse(localStorage.getItem("user"));
   if (user) {

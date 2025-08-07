@@ -53,7 +53,7 @@ const OrderComplete = () => {
         <p className="mt-1 text-lg text-gray-600">
           Order ID: <strong>OCD1232</strong>
         </p>
-        <h1 className="text-3xl md:text-4xl font-bold text-indigo-900 mt-2">
+        <h1 className="text-3xl md:text-4xl font-bold mt-2">
           Your Order Is Completed!
         </h1>
         <p className="mt-4 text-gray-500 max-w-md">

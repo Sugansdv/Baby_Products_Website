@@ -11,10 +11,10 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white shadow-md border rounded-2xl w-[300px] relative overflow-hidden min-h-[400px]">
+    <div className="bg-white shadow-md border rounded-2xl w-[300px] relative overflow-hidden min-h-[400px] transform transition duration-300 hover:scale-105 hover:shadow-lg">
 
       {/* NEW Tag */}
-      <div className="absolute top-0 left-0 bg-cyan-500 px-3 py-1 rounded-br-xl text-xs sm:text-sm lg:text-base font-bold z-10">
+      <div className="absolute top-0 left-0 bg-[#00B4D8] px-3 py-1 rounded-br-xl text-xs sm:text-sm lg:text-base font-bold z-10">
         NEW
       </div>
 
@@ -31,14 +31,15 @@ const ProductCard = ({ product }) => {
       <div className="absolute bottom-[95px] right-1 z-50">
         <button 
           onClick={handleBuyClick} 
-          className="bg-[#00b4d8] text-xs sm:text-sm lg:text-base font-bold px-4 py-1 rounded-2xl shadow"
-        >
+          className="bg-[#00B4D8] text-xs sm:text-sm lg:text-base font-bold px-4 py-1 rounded-2xl shadow hover:bg-[#009ec2] hover:scale-105 transition duration-300"
+
+>
           Buy
         </button>
       </div>
 
       {/* Bottom Info Box */}
-      <div className="relative bg-[#c8ebfb] p-4 pt-5 rounded-b-2xl clip-bend">
+      <div className="relative bg-[#B0E4F4] p-4 pt-5 rounded-b-2xl clip-bend">
         {/* Title */}
         <h2 className="font-bold text-base sm:text-lg lg:text-2xl mb-1">{product.title}</h2>
 

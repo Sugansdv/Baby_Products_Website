@@ -68,7 +68,7 @@ const Payment = () => {
         
         
   {/* Left Form Section */}
-<div className="w-full md:w-1/2 space-y-4 border border-cyan-100 rounded-lg p-6">
+<div className="w-full md:w-1/2 space-y-4 border border-[#00b4d8] rounded-lg p-6">
  
 
   {[
@@ -90,7 +90,7 @@ const Payment = () => {
         name={name}
         value={formData[name]}
         onChange={handleChange}
-        className="w-full bg-blue-200 border border-cyan-500 p-3 md:text-base h-14 rounded-lg mt-4"
+        className="w-full bg-sky-50 border border-[#00b4d8] p-3 md:text-base h-14 rounded-lg mt-4"
       />
       {errors[name] && <p className="text-red-500 text-sm">{errors[name]}</p>}
     </div>
@@ -110,7 +110,7 @@ const Payment = () => {
 
 
   {/* Right Payment Summary Section */}
-  <div className="w-full md:w-1/3 h-[65vh] border border-cyan-100 rounded-lg px-6 py-8">
+  <div className="w-full md:w-1/3 h-[65vh] border border-[#00b4d8] rounded-lg px-6 py-8">
     <h2 className="text-lg font-semibold mb-4">Cart Total</h2>
 
     <div className="flex justify-between mb-2">
@@ -161,7 +161,7 @@ const Payment = () => {
 
 <div className="flex justify-center">
             <button
-              className="w-48 mt-3 bg-cyan-500 hover:bg-cyan-600 py-2 rounded-lg"
+              className="w-48 mt-3 bg-[#00b4d8] hover:bg-cyan-600 py-2 rounded-lg"
                 onClick={handleSubmit}
             >
                 Place Order

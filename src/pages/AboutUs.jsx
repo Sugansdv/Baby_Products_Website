@@ -1,10 +1,17 @@
 import React from "react";
 import { FaLeaf, FaUserMd, FaHeart, FaGlobe, FaSmile } from "react-icons/fa";
 import logo from "../assets/images/logo.png"; 
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <section className="max-w-5xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-4 py-12">
+        <div className="text-base sm:text-lg font-medium flex flex-wrap items-center gap-1">
+          <Link to="/" className="hover:underline">Home</Link>
+          <span>›</span>
+          <Link to="" className="">About</Link>
+        </div>
+      
       <div className="flex flex-col sm:flex-row items-start gap-20">
         <div className="flex-shrink-0 flex flex-col items-center sm:items-start">
           <img

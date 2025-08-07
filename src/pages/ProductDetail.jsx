@@ -63,29 +63,29 @@ const ProductDetail = () => {
         {/* Thumbnails + Main Image */}
         <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-6 mt-6">
           {/* Thumbnails */}
-          <div className="flex lg:flex-col flex-wrap gap-3 lg:gap-4 justify-center">
+          <div className="flex lg:flex-col flex-wrap gap-3 lg:gap-4 justify-center ">
             {product.images.map((img, index) => (
               <img
                 key={index}
                 src={img}
                 alt={`Thumb ${index}`}
                 onClick={() => setMainImage(img)}
-                className={`w-[80px] h-[80px] sm:w-[90px] sm:h-[100px] lg:w-[120px] lg:h-[130px] object-cover rounded-xl border-2 cursor-pointer ${
-                  mainImage === img ? "border-cyan-500" : "border-gray-300"
+                className={`w-[80px] h-[80px] sm:w-[90px] sm:h-[100px] lg:w-[120px] lg:h-[130px] object-cover rounded-xl border-2 border-amber-500 cursor-pointer ${
+                  mainImage === img ? "border-5 border-amber-900" : "border-gray-300"
                 }`}
               />
             ))}
           </div>
 
           {/* Main Image */}
-          <div className="relative flex-1 h-[250px] sm:h-[300px] md:h-[400px] lg:h-[600px] rounded-2xl overflow-hidden border shadow-md flex justify-center items-center bg-[#B0E6F9]">
+          <div className="relative flex-1 h-[250px] sm:h-[300px] md:h-[400px] lg:h-[600px] rounded-2xl overflow-hidden border shadow-md flex justify-center items-center bg-[#B0E4F4]">
             <img
               src={mainImage}
               alt="Main product"
               className="w-[90%] h-full object-contain"
             />
             {/* Coupon Code */}
-            <div className="absolute top-0 right-0 bg-cyan-400 px-3 py-2 rounded-bl-xl text-sm font-semibold">
+            <div className="absolute top-0 right-0 bg-[#00B4D8] px-3 py-2 rounded-bl-xl text-sm font-semibold">
               Coupon: EB55
             </div>
           </div>
@@ -98,7 +98,7 @@ const ProductDetail = () => {
               key={index}
               onClick={() => setMainImage(img)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                mainImage === img ? "bg-black scale-110" : "bg-cyan-400"
+                mainImage === img ? "bg-[#00b4d8] border border-black scale-110" : "bg-[#00b4d8]"
               }`}
             />
           ))}
@@ -163,7 +163,7 @@ const ProductDetail = () => {
           <div className="flex items-center gap-2 border px-3 py-2 rounded-xl shadow-sm">
             <button
               onClick={decrement}
-              className="w-9 h-9 border rounded-lg flex items-center justify-center text-xl font-bold bg-cyan-200"
+              className="w-9 h-9 border rounded-lg flex items-center justify-center text-xl font-bold bg-[#b0e4f4]"
             >
               -
             </button>
@@ -176,7 +176,7 @@ const ProductDetail = () => {
             />
             <button
               onClick={increment}
-              className="w-9 h-9 border rounded-lg flex items-center justify-center text-xl font-bold bg-cyan-200"
+              className="w-9 h-9 border rounded-lg flex items-center justify-center text-xl font-bold bg-[#b0e4f4]"
             >
               +
             </button>
@@ -184,7 +184,7 @@ const ProductDetail = () => {
 
           <button
             onClick={handleBuyNow}
-            className="bg-[#00b4d8] hover:bg-[#009ec2] text-white px-6 sm:px-8 py-2 rounded-xl font-semibold text-base shadow mt-2 sm:mt-0"
+            className="bg-[#00b4d8] hover:bg-[#009ec2] text px-6 sm:px-8 py-2 rounded-xl font-semibold text-base shadow mt-2 sm:mt-0"
           >
             Buy Now
           </button>
@@ -197,7 +197,7 @@ const ProductDetail = () => {
               <img src={deliveryIcon} alt="Delivery" className="w-6 sm:w-8 h-6 sm:h-8" />
               <div>
                 <p className="font-semibold">Free Delivery</p>
-                <p className="text-sm text-gray-600 font-semibold underline">
+                <p className="text-sm text-gray-800 font-semibold underline">
                   Enter your postal code for Delivery Availability
                 </p>
               </div>
@@ -209,9 +209,9 @@ const ProductDetail = () => {
               <img src={returnIcon} alt="Return" className="w-6 sm:w-8 h-6 sm:h-8" />
               <div>
                 <p className="font-semibold">Return Delivery</p>
-                <p className="text-sm text-gray-600 font-semibold">
+                <p className="text-sm text-gray-800 font-semibold">
                   Free 7 Days Delivery Returns.{" "}
-                  <span className="underline cursor-pointer text-blue-600">Details</span>
+                  <span className="underline cursor-pointer">Details</span>
                 </p>
               </div>
             </div>

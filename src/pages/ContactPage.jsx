@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import contactImage from "../assets/images/contact.png";
+import { Link } from "react-router-dom";
+
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +45,11 @@ const ContactPage = () => {
 
   return (
     <div className="p-4 md:p-8 lg:px-20 lg:py-8">
-
+<div className="text-base sm:text-lg font-medium flex flex-wrap items-center gap-1 my-8">
+          <Link to="/" className="hover:underline">Home</Link>
+          <span>›</span>
+          <Link to="" className="">Contact</Link>
+        </div>
       <div className="flex flex-col lg:flex-row gap-1">
         {/* Left Side Image */}
         <div className="w-full lg:w-[50%]">

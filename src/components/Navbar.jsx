@@ -178,7 +178,7 @@ const navLinkClass = ({ isActive }) =>
       <div className="container mx-auto flex justify-space-between items-center px-4 py-3">
 
         {/* Logo */}
-        <div className="flex gap-2 -ml-20">
+        <div className="flex gap-2 ml-0 lg:-ml-20">
           <Link to="/" className="flex items-center gap-1">
             <img src={logo} className="h-8" alt="Logo" />
             <span className="text-sky-500 text-2xl font-bold">EarthBubs</span>
@@ -208,7 +208,7 @@ const navLinkClass = ({ isActive }) =>
       </button>
       {showProducts && (
         <div className="absolute top-full mt-2 border rounded shadow w-52 z-50 bg-[#B0E4F4]">
-          <div className="flex flex-col gap-y-1 py-1 bg-cyan-100 border">
+          <div className="flex flex-col gap-y-1 py-1 bg-[#boe4f4] border">
             {[
               { to: "/products/pampers", label: "Pampers" },
               { to: "/products/boys-fashion", label: "Boy's Fashions" },
@@ -337,7 +337,7 @@ const navLinkClass = ({ isActive }) =>
             onClick={() => setMobileMenuOpen((o) => !o)}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
-            className="p-2"
+            className="p-2 flex"
           >
             <div className="space-y-1">
               <span

@@ -16,7 +16,7 @@ const Offers = () => {
           <span>›</span>
           <span>Products</span>
           <span>›</span>
-          <Link to="" className="text-blue-600 font-semibold">BoysFashion</Link>
+          <Link to="" className="text-blue-600 font-semibold">Offers</Link>
         </div>
 
         <div className="w-full md:w-auto">
